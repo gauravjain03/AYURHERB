@@ -1,0 +1,11 @@
+.herb-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    cursor: pointer;
+    text-align: center;
+  }
+  .herb-card img {
+    width: 100%;
+    height: auto;
+  }
