@@ -1,8 +1,21 @@
-// HerbDetail.js
 import React from 'react';
-import './VirtualHerbalGarden.css'; // Ensure correct path to CSS
+import './HerbDetail.css';
 
-const HerbDetail = ({ selectedHerb, onClose }) => {
+const HerbDetail = ({ selectedHerb, onClose, onBookmark, isBookmarked }) => {
+  const handleShare = () => {
+    const shareData = {
+      title: selectedHerb.title,
+      text: `Check out this herb: ${selectedHerb.title} (${selectedHerb.botanicalName}) - ${selectedHerb.medicinalUses}`,
+      url: window.location.href,
+    };
+
+    if (navigator.share) {
+      navigator.share(shareData).catch(console.error);
+    } else {
+      alert('Sharing is not supported in this browser.');
+    }
+  };
+
   if (!selectedHerb) return null;
 
   return (
@@ -15,8 +28,6 @@ const HerbDetail = ({ selectedHerb, onClose }) => {
             frameBorder="0"
             allowFullScreen
             src={selectedHerb.modelSrc}
-            width="100%"
-            height="480"
           ></iframe>
         </div>
         <div className="herb-info">
@@ -25,7 +36,21 @@ const HerbDetail = ({ selectedHerb, onClose }) => {
           <p><strong>Common Names:</strong> {selectedHerb.commonNames}</p>
           <p><strong>Habitat:</strong> {selectedHerb.habitat}</p>
           <p><strong>Medicinal Uses:</strong> {selectedHerb.medicinalUses}</p>
-          <p><strong>How to Find:</strong> {selectedHerb.howToFind}</p>
+          <button className={`bookmark-button ${isBookmarked ? 'bookmarked' : ''}`} onClick={() => onBookmark(selectedHerb)}>
+            {isBookmarked ? 'Unbookmark' : 'Bookmark'}
+          </button>
+          <button className="share-button" onClick={handleShare}>
+            Share
+          </button>
+        </div>
+        <div className="herb-notes">
+          <h3>Take Notes</h3>
+          <textarea
+            placeholder="Write your notes here..."
+          ></textarea>
+          <button className="download-button">
+            Download Notes
+          </button>
         </div>
       </div>
     </div>

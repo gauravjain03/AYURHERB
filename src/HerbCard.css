@@ -1,11 +1,49 @@
 .herb-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 1rem;
-    cursor: pointer;
-    text-align: center;
-  }
-  .herb-card img {
-    width: 100%;
-    height: auto;
-  }
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+}
+
+.herb-card img {
+  width: 100%;
+  height: auto;
+}
+
+.herb-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.learn-more-button, .bookmark-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.learn-more-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.learn-more-button:hover {
+  background-color: #45a049;
+}
+
+.bookmark-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.bookmark-button.bookmarked {
+  background-color: #ff5722;
+}
+
+.bookmark-button:hover {
+  opacity: 0.9;
+}
