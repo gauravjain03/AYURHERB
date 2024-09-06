@@ -9,7 +9,7 @@ const VirtualHerbalGarden = () => {
   const [showBookmarks, setShowBookmarks] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [filters, setFilters] = useState({ region: '', type: '', medicinalUses: '' });
-
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const herbs = [
     {
       title: "Holy Basil",
@@ -74,8 +74,9 @@ const VirtualHerbalGarden = () => {
   ];
 
   const toggleBookmark = (herb) => {
-    if (bookmarkedHerbs.includes(herb)) {
-      setBookmarkedHerbs(bookmarkedHerbs.filter((item) => item !== herb));
+    const isBookmarked = bookmarkedHerbs.some((item) => item.title === herb.title);
+    if (isBookmarked) {
+      setBookmarkedHerbs(bookmarkedHerbs.filter((item) => item.title !== herb.title));
     } else {
       setBookmarkedHerbs([...bookmarkedHerbs, herb]);
     }
@@ -96,7 +97,7 @@ const VirtualHerbalGarden = () => {
     const matchesMedicinalUses = filters.medicinalUses ? herb.medicinalUses.toLowerCase().includes(filters.medicinalUses.toLowerCase()) : true;
 
     if (showBookmarks) {
-      return matchesSearch && matchesRegion && matchesType && matchesMedicinalUses && bookmarkedHerbs.includes(herb);
+      return matchesSearch && matchesRegion && matchesType && matchesMedicinalUses && bookmarkedHerbs.some((item) => item.title === herb.title);
     }
 
     return matchesSearch && matchesRegion && matchesType && matchesMedicinalUses;
@@ -104,58 +105,89 @@ const VirtualHerbalGarden = () => {
 
   return (
     <div className="garden-container">
+      {/* Navbar */}
       <div className="navbar">
-        <h1>HERBSPHERE</h1>
+        <div className="navbar-left">
+          <a href="#" className="logo">HerbSphere</a>
+        </div>
+        <div className="navbar-right">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#features">Features</a>
+          <a href="#contact">Contact</a>
+        </div>
       </div>
-      <div className="sidebar">
-        <input type="text" className="search-bar" placeholder="Search plants..." onChange={handleSearch} />
-        <h3>Filter by Region</h3>
-        <select onChange={(e) => handleFilterChange('region', e.target.value)}>
-          <option value="">All Regions</option>
-          <option value="Tropical">Tropical</option>
-          <option value="Arid">Arid</option>
-          <option value="Mediterranean">Mediterranean</option>
-          <option value="Temperate">Temperate</option>
-          <option value="North America">North America</option>
-        </select>
-        <h3>Filter by Type</h3>
-        <select onChange={(e) => handleFilterChange('type', e.target.value)}>
-          <option value="">All Types</option>
-          <option value="Herb">Herb</option>
-          <option value="Succulent">Succulent</option>
-          <option value="Shrub">Shrub</option>
-          <option value="Flowering plant">Flowering plant</option>
-        </select>
-        <h3>Filter by Medicinal Uses</h3>
-        <input type="text" placeholder="e.g., immune support" onChange={(e) => handleFilterChange('medicinalUses', e.target.value)} />
-        <h3>
-          <label>
-            <input
-              type="checkbox"
-              checked={showBookmarks}
-              onChange={() => setShowBookmarks(!showBookmarks)}
-            />
-            Show Bookmarked Plants
-          </label>
-        </h3>
+
+      {/* Collapsible Sidebar */}
+      <div className={`sidebar ${sidebarCollapsed ? 'collapsed' : ''}`}>
+        {!sidebarCollapsed && (
+          <>
+            <input type="text" className="search-bar" placeholder="Search plants..." onChange={handleSearch} />
+
+            {/* Region Filter */}
+            <div className="filter-section">
+              <h3>Filter by Region</h3>
+              <select onChange={(e) => handleFilterChange('region', e.target.value)}>
+                <option value="">All Regions</option>
+                <option value="Tropical">Tropical</option>
+                <option value="Arid">Arid</option>
+                <option value="Mediterranean">Mediterranean</option>
+                <option value="Temperate">Temperate</option>
+                <option value="North America">North America</option>
+              </select>
+            </div>
+
+            {/* Type Filter */}
+            <div className="filter-section">
+              <h3>Filter by Type</h3>
+              <select onChange={(e) => handleFilterChange('type', e.target.value)}>
+                <option value="">All Types</option>
+                <option value="Herb">Herb</option>
+                <option value="Succulent">Succulent</option>
+                <option value="Shrub">Shrub</option>
+                <option value="Flowering plant">Flowering plant</option>
+              </select>
+            </div>
+
+            {/* Medicinal Uses Filter */}
+            <div className="filter-section">
+              <h3>Filter by Medicinal Uses</h3>
+              <input type="text" placeholder="e.g., immune support" onChange={(e) => handleFilterChange('medicinalUses', e.target.value)} />
+            </div>
+
+            {/* Toggle Bookmarks */}
+            <button className="toggle-bookmarks" onClick={() => setShowBookmarks(!showBookmarks)}>
+              {showBookmarks ? 'Show All Herbs' : 'Show Bookmarked Herbs'}
+            </button>
+          </>
+        )}
       </div>
-      <div className="card-container">
-        {filteredHerbs.map((herb, index) => (
+
+      {/* Sidebar Toggle Button */}
+      <button className="sidebar-toggle" onClick={() => setSidebarCollapsed(!sidebarCollapsed)}>
+        {sidebarCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
+      </button>
+
+      {/* Cards */}
+      <div className={`card-container ${sidebarCollapsed ? 'expanded' : ''}`}>
+        {filteredHerbs.map((herb) => (
           <HerbCard
-            key={index}
+            key={herb.title}
             herb={herb}
-            onClick={setSelectedHerb}
-            isBookmarked={bookmarkedHerbs.includes(herb)}
-            onBookmark={toggleBookmark} // Make sure this is correctly passed
+            onClick={() => setSelectedHerb(herb)}
+            onBookmark={() => toggleBookmark(herb)}
+            isBookmarked={bookmarkedHerbs.some((item) => item.title === herb.title)}
           />
         ))}
       </div>
-      <HerbDetail
-        selectedHerb={selectedHerb}
-        onClose={() => setSelectedHerb(null)}
-        onBookmark={toggleBookmark} // Make sure this is correctly passed
-        isBookmarked={bookmarkedHerbs.includes(selectedHerb)}
-      />
+
+      {/* Herb Detail */}
+      {selectedHerb && (
+        <HerbDetail
+          herb={selectedHerb}
+          onClose={() => setSelectedHerb(null)}
+        />
+      )}
     </div>
   );
 };

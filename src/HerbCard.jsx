@@ -1,17 +1,19 @@
 import React from 'react';
 import './HerbCard.css';
 
-const HerbCard = ({ herb, onClick, isBookmarked, onBookmark }) => {
+const HerbCard = ({ herb, onClick, onBookmark, isBookmarked }) => {
   return (
-    <div className="herb-card">
+    <div className="herb-card" onClick={onClick}>
       <img src={herb.thumbnail} alt={herb.title} className="herb-thumbnail" />
-      <p className="herb-title">{herb.title}</p>
-      <div className="herb-buttons">
-        <button className="learn-more-button" onClick={() => onClick(herb)}>Learn More</button>
-        <button className={`bookmark-button ${isBookmarked ? 'bookmarked' : ''}`} onClick={() => onBookmark(herb)}>
-          {isBookmarked ? 'Unbookmark' : 'Bookmark'}
-        </button>
-      </div>
+      <button 
+        className={`bookmark-button ${isBookmarked ? 'bookmarked' : ''}`} 
+        onClick={(e) => {
+          e.stopPropagation(); // Prevent click event from bubbling up to card
+          onBookmark();
+        }}
+      >
+        {isBookmarked ? 'Unbookmark' : 'Bookmark'}
+      </button>
     </div>
   );
 };
