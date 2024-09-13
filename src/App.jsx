@@ -1,10 +1,11 @@
 import React from 'react';
-import VirtualHerbalGarden from './VirtualHerbalGarden';
+import Home from './pages/Home';
+import './styles/global.css';
 
 const App = () => {
   return (
     <div>
-      <VirtualHerbalGarden />
+      <Home />
     </div>
   );
 };
