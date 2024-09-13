@@ -24,8 +24,6 @@ function Home() {
     setShowChatbot(!showChatbot);
   };
 
-
-
   // Function to handle filter changes
   const handleRegionChange = (e) => setFilterRegion(e.target.value);
   const handleTypeChange = (e) => setFilterType(e.target.value);
@@ -75,18 +73,18 @@ function Home() {
 
   // Plant data
   const plants = [
-    { imageSrc: '/images/tulsi.png', name: 'Tulsi', region: 'Tropical', type: 'Herb', ayush: 'Ayurveda' },
-    { imageSrc: '/images/neem.png', name: 'Neem', region: 'Tropical', type: 'Tree', ayush: 'Ayurveda' },
-    { imageSrc: '/images/ashwagandha.jpg', name: 'Ashwagandha', region: 'Arid', type: 'Shrub', ayush: 'Ayurveda' },
-    { imageSrc: '/images/aloevera.png', name: 'Aloe Vera', region: 'Tropical', type: 'Succulent', ayush: 'Ayurveda' },
-    { imageSrc: '/images/lavender.png', name: 'Lavender', region: 'Mediterranean', type: 'Flowering Plant', ayush: 'Naturopathy' },
-    { imageSrc: '/images/sage.png', name: 'Sage', region: 'Temperate', type: 'Herb', ayush: 'Ayurveda' },
-    { imageSrc: '/images/cactus.png', name: 'Cactus', region: 'Arid', type: 'Succulent', ayush: 'Naturopathy' },
-    { imageSrc: '/images/dandelions.png', name: 'Dandelion', region: 'North America', type: 'Flowering Plant', ayush: 'Homeopathy' },
-    { imageSrc: '/images/eucalyptus.png', name: 'Eucalyptus', region: 'Temperate', type: 'Tree', ayush: 'Ayurveda' },
-    { imageSrc: '/images/hibiscus.png', name: 'Hibiscus', region: 'Tropical', type: 'Flowering Plant', ayush: 'Ayurveda' },
-    { imageSrc: '/images/rosemary.png', name: 'Rosemary', region: 'Mediterranean', type: 'Herb', ayush: 'Naturopathy' },
-    { imageSrc: '/images/ginger.png', name: 'Ginger', region: 'Tropical', type: 'Herb', ayush: 'Ayurveda' },
+    { imageSrc: '/images/tulsi.png', name: 'Tulsi', region: 'Tropical', type: 'Herb', ayush: 'Ayurveda', description: 'Tulsi, also known as holy basil, is a revered plant in Ayurveda known for its healing properties.', sketchfabModelUrl: 'https://sketchfab.com/models/3272493ccf6c4ede895f259905ef1db8/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/neem.png', name: 'Neem', region: 'Tropical', type: 'Tree', ayush: 'Ayurveda', description: 'Neem is a fast-growing tree used in traditional medicine for its antibacterial properties.', sketchfabModelUrl: 'https://sketchfab.com/models/03edef8009d942d3a3db6fa64cecbe56/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/aloevera.png', name: 'Aloe Vera', region: 'Tropical', type: 'Succulent', ayush: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/66c6699e50ab4863989777f920a981dd/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/lavender.png', name: 'Lavender', region: 'Mediterranean', type: 'Flowering Plant', ayush: 'Naturopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/08f35ae30b924678955b4bb483b86a70/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/sage.png', name: 'Sage', region: 'Temperate', type: 'Herb', ayush: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/f41f028de9ca4be2b2e85df0820508ae/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/cactus.png', name: 'Cactus', region: 'Arid', type: 'Succulent', ayush: 'Naturopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/01d773057954447a9abb7ae0c6c052af/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/dandelions.png', name: 'Dandelion', region: 'North America', type: 'Flowering Plant', ayush: 'Homeopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/8a93f08947a4499b9ed19d2d47323242/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/eucalyptus.png', name: 'Eucalyptus', region: 'Temperate', type: 'Tree', ayush: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/d021e7909df44e03b976c1374bfab9dc/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/hibiscus.png', name: 'Hibiscus', region: 'Tropical', type: 'Flowering Plant', ayush: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/8992b6b94b094a069930104a32d5e9f5/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/rosemary.png', name: 'Rosemary', region: 'Mediterranean', type: 'Herb', ayush: 'Naturopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/d5c0f249ff8a4d13840abf681bb92d29/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/ashwagandha.jpg', name: 'Ashwagandha', region: 'Arid', type: 'Shrub', ayush: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/88b1bf03a6254dc2b56cec4dce3f22f1/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/ginger.png', name: 'Ginger', region: 'Tropical', type: 'Herb', ayush: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/de8da99c3c1742708cd4ea858750b881/embed?autospin=1&autostart=1' },
   ];
 
   // Filtered plants based on selected filters
@@ -271,7 +269,7 @@ function Home() {
         </div>
       </div>
 
-      {/* Popup */}
+      {/* Popup content with dynamic 3D model and description */}
       {isPopupOpen && selectedPlant && (
         <div className="fixed inset-0 flex items-center justify-center z-40 bg-black bg-opacity-50">
           <div className="bg-white rounded-lg p-8 w-4/5 max-w-4xl overflow-y-auto relative">
@@ -283,59 +281,42 @@ function Home() {
               &times;
             </button>
 
-            {/* Popup Content Grid Layout */}
-            <div className="grid grid-cols-2 grid-rows-2 gap-4">
-
-              {/* Section 1: 3D model (Top Left) */}
-              <div className="row-span-1">
-                <h2 className="text-2xl font-bold tracking-wide mb-2">{selectedPlant.name}</h2>
+            {/* Popup Content */}
+            <div className="grid grid-cols-2 gap-4">
+              {/* Left side: 3D Model and Multimedia */}
+              <div>
                 <iframe
-                  src="https://sketchfab.com/models/3272493ccf6c4ede895f259905ef1db8/embed?dnt=1"
-                  title="Plant 3D Model"
-                  className="w-full h-64"
+                  title={selectedPlant.name}
+                  src={selectedPlant.sketchfabModelUrl}
+                  frameBorder="0"
                   allowFullScreen
+                  className="w-full h-96"
                 ></iframe>
               </div>
 
-              {/* Section 2: Plant Info (Top Right) */}
-              <div className="row-span-1 p-4 mt-5 leading-8">
-                <h3 className="text-xl font-semibold mb-2">Plant Information :</h3>
-                <p><strong>Botanical Name:</strong> Ocimum tenuiflorum</p>
-                <p><strong>Common Names:</strong> Tulsi</p>
-                <p><strong>Region:</strong> Tropical</p>
-                <p><strong>Type:</strong> Herb</p>
-                <p><strong>Medicinal Uses:</strong> Stress relief, immune support</p>
-                <p><strong>Habitat:</strong> Tropical regions</p>
-                <p><strong>How to Find:</strong> Common in gardens and markets</p>
+              {/* Right side: Plant Info */}
+              <div>
+                <h2 className="text-3xl font-bold">{selectedPlant.name}</h2>
+                <p className="mt-4 text-lg">{selectedPlant.description}</p>
+                <div className="mt-4">
+                  <h4 className="text-xl font-semibold">Region: {selectedPlant.region}</h4>
+                  <h4 className="text-xl font-semibold">Type: {selectedPlant.type}</h4>
+                  <h4 className="text-xl font-semibold">Ayush System: {selectedPlant.ayush}</h4>
+                </div>
               </div>
+            </div>
 
-              {/* Section 3: Multimedia (Bottom Left) */}
-              <div className="row-span-1 mt-5">
-                <img src={selectedPlant.imageSrc} alt={selectedPlant.name} className="h-64 object-cover w-full" />
-              </div>
-
-              {/* Section 4: Notes */}
-              <div className="row-span-1 p-4 mt-5">
-                <h3 className="text-xl font-semibold mb-5">Notes :</h3>
-                <textarea
-                  id="notes-textarea"
-                  rows="5"
-                  className="w-full p-2 border rounded-md"
-                  placeholder="Write your notes here..."
-                ></textarea>
-                <button
-                  className="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-                  onClick={handleDownloadNotes}
-                >
+            {/* Notes Section */}
+            <div className="mt-8">
+              <h3 className="text-2xl font-semibold">Notes:</h3>
+              <textarea id="notes-textarea" className="w-full p-2 mt-2 border rounded-md"></textarea>
+              <div className="mt-4">
+                <button onClick={handleDownloadNotes} className="px-4 py-2 bg-green-500 text-white rounded-md">
                   Download Notes
                 </button>
-                <button
-                  className="mt-2 px-4 py-2 bg-main-color text-white rounded ml-2 hover:bg-blue-900"
-                  onClick={handleShareNotes}
-                >
-                  Share
+                <button onClick={handleShareNotes} className="ml-4 px-4 py-2 bg-blue-500 text-white rounded-md">
+                  Share Notes
                 </button>
-
               </div>
             </div>
           </div>
