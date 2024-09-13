@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PlantCard from '../components/PlantCard';
 import Footer from '../components/Footer';
+import QuizPopup from '../components/QuizPopup';
 
 function Home() {
   // State to handle filter panel visibility
@@ -73,18 +74,18 @@ function Home() {
 
   // Plant data
   const plants = [
-    { imageSrc: '/images/tulsi.png', name: 'Tulsi', region: 'Tropical', type: 'Herb', ayush: 'Ayurveda', description: 'Tulsi, also known as holy basil, is a revered plant in Ayurveda known for its healing properties.', sketchfabModelUrl: 'https://sketchfab.com/models/3272493ccf6c4ede895f259905ef1db8/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/neem.png', name: 'Neem', region: 'Tropical', type: 'Tree', ayush: 'Ayurveda', description: 'Neem is a fast-growing tree used in traditional medicine for its antibacterial properties.', sketchfabModelUrl: 'https://sketchfab.com/models/03edef8009d942d3a3db6fa64cecbe56/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/aloevera.png', name: 'Aloe Vera', region: 'Tropical', type: 'Succulent', ayush: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/66c6699e50ab4863989777f920a981dd/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/lavender.png', name: 'Lavender', region: 'Mediterranean', type: 'Flowering Plant', ayush: 'Naturopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/08f35ae30b924678955b4bb483b86a70/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/sage.png', name: 'Sage', region: 'Temperate', type: 'Herb', ayush: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/f41f028de9ca4be2b2e85df0820508ae/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/cactus.png', name: 'Cactus', region: 'Arid', type: 'Succulent', ayush: 'Naturopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/01d773057954447a9abb7ae0c6c052af/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/dandelions.png', name: 'Dandelion', region: 'North America', type: 'Flowering Plant', ayush: 'Homeopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/8a93f08947a4499b9ed19d2d47323242/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/eucalyptus.png', name: 'Eucalyptus', region: 'Temperate', type: 'Tree', ayush: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/d021e7909df44e03b976c1374bfab9dc/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/hibiscus.png', name: 'Hibiscus', region: 'Tropical', type: 'Flowering Plant', ayush: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/8992b6b94b094a069930104a32d5e9f5/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/rosemary.png', name: 'Rosemary', region: 'Mediterranean', type: 'Herb', ayush: 'Naturopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/d5c0f249ff8a4d13840abf681bb92d29/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/ashwagandha.jpg', name: 'Ashwagandha', region: 'Arid', type: 'Shrub', ayush: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/88b1bf03a6254dc2b56cec4dce3f22f1/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/ginger.png', name: 'Ginger', region: 'Tropical', type: 'Herb', ayush: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/de8da99c3c1742708cd4ea858750b881/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/tulsi.png', name: 'Tulsi', region: 'Tropical', type: 'Herb', habitat: 'Ayurveda', description: 'Tulsi, also known as holy basil, is a revered plant in Ayurveda known for its healing properties.', sketchfabModelUrl: 'https://sketchfab.com/models/3272493ccf6c4ede895f259905ef1db8/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/neem.png', name: 'Neem', region: 'Tropical', type: 'Tree', habitat: 'Ayurveda', description: 'Neem is a fast-growing tree used in traditional medicine for its antibacterial properties.', sketchfabModelUrl: 'https://sketchfab.com/models/03edef8009d942d3a3db6fa64cecbe56/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/aloevera.png', name: 'Aloe Vera', region: 'Tropical', type: 'Succulent', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/66c6699e50ab4863989777f920a981dd/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/lavender.png', name: 'Lavender', region: 'Mediterranean', type: 'Flowering Plant', habitat: 'Naturopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/08f35ae30b924678955b4bb483b86a70/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/sage.png', name: 'Sage', region: 'Temperate', type: 'Herb', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/f41f028de9ca4be2b2e85df0820508ae/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/cactus.png', name: 'Cactus', region: 'Arid', type: 'Succulent', habitat: 'Naturopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/01d773057954447a9abb7ae0c6c052af/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/dandelions.png', name: 'Dandelion', region: 'North America', type: 'Flowering Plant', habitat: 'Homeopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/8a93f08947a4499b9ed19d2d47323242/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/eucalyptus.png', name: 'Eucalyptus', region: 'Temperate', type: 'Tree', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/d021e7909df44e03b976c1374bfab9dc/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/hibiscus.png', name: 'Hibiscus', region: 'Tropical', type: 'Flowering Plant', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/8992b6b94b094a069930104a32d5e9f5/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/rosemary.png', name: 'Rosemary', region: 'Mediterranean', type: 'Herb', habitat: 'Naturopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/d5c0f249ff8a4d13840abf681bb92d29/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/ashwagandha.jpg', name: 'Ashwagandha', region: 'Arid', type: 'Shrub', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/88b1bf03a6254dc2b56cec4dce3f22f1/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/ginger.png', name: 'Ginger', region: 'Tropical', type: 'Herb', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/de8da99c3c1742708cd4ea858750b881/embed?autospin=1&autostart=1' },
   ];
 
   // Filtered plants based on selected filters
@@ -112,39 +113,45 @@ function Home() {
     setShowBookmarks(!showBookmarks);
   };
 
+  // State for quiz popup
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
+
+  // Function to toggle quiz popup
+  const toggleQuiz = () => {
+    setIsQuizOpen(!isQuizOpen);
+  };
+
   return (
     <>
       <div className="font-poppins">
         {/* Navbar */}
         <nav className="bg-white shadow-md fixed top-0 left-0 w-full z-30">
-          <div className="container mx-auto flex justify-between items-center py-4 px-8 pt-5">
+          <div className="container mx-auto flex items-center py-4 px-8">
             {/* Logo */}
-            <div className="text-black text-2xl font-semibold">
+            <div className="flex-shrink-0 text-black text-2xl font-semibold">
               <img src="/images/AYURB.png" alt="AYURB Logo" className="h-10" />
             </div>
 
-            {/* Middle: Links (Including Bookmarks) */}
-            <div className="absolute left-1/2 transform -translate-x-1/2">
-              <div className="flex space-x-8">
-                <a href="#home" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200">
-                  Home
-                </a>
-                <a href="#about" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200">
-                  About
-                </a>
-                <a href="#contact" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200">
-                  Contact
-                </a>
-                <button
-                  onClick={handleShowBookmarks}
-                  className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200"
-                >
-                  Bookmarks
-                </button>
-              </div>
+            {/* Middle: Links */}
+            <div className="flex-grow flex justify-center space-x-8">
+              <a href="#home" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200">
+                Home
+              </a>
+              <a href="#about" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200">
+                About
+              </a>
+              <a href="#contact" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200">
+                Contact
+              </a>
+              <button
+                onClick={handleShowBookmarks}
+                className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200"
+              >
+                Bookmarks
+              </button>
             </div>
 
-            {/* Right Side: Search Bar, Filter, and Bookmarks */}
+            {/* Right Side: Search Bar, Filter, and Quiz */}
             <div className="flex items-center space-x-4">
               {/* Search Box */}
               <div className="flex items-center w-80">
@@ -166,6 +173,14 @@ function Home() {
                 <i className="fa-solid fa-filter mr-2"></i>Filter
               </button>
 
+              {/* Quiz Button */}
+              <button
+                onClick={toggleQuiz}
+                className="px-4 py-2 border border-main-color text-main-color rounded-xl bg-sec-color hover:bg-main-color hover:text-white transition-colors duration-200"
+              >
+                <i className="fa-solid fa-question-circle mr-2"></i>Quiz
+              </button>
+
               {/* Bookmarks Tab
               <div>
                 <button
@@ -175,9 +190,9 @@ function Home() {
                   <i className="fa-solid fa-bookmark mr-2"></i>{showBookmarks ? 'Show All' : 'Bookmarks'}
                 </button>
               </div> */}
-            </div>
-          </div>
-        </nav>
+            </div >
+          </div >
+        </nav >
 
         {/* Filter Slider (Fixed with Transparency and Blur Effect) */}
         <div
@@ -282,41 +297,56 @@ function Home() {
             </button>
 
             {/* Popup Content */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className=" grid grid-cols-2 grid-rows-2 gap-4">
               {/* Left side: 3D Model and Multimedia */}
-              <div>
+              <div className="row-span-1">
                 <iframe
                   title={selectedPlant.name}
                   src={selectedPlant.sketchfabModelUrl}
                   frameBorder="0"
                   allowFullScreen
-                  className="w-full h-96"
+                  className="w-full h-72"
                 ></iframe>
               </div>
 
               {/* Right side: Plant Info */}
-              <div>
-                <h2 className="text-3xl font-bold">{selectedPlant.name}</h2>
-                <p className="mt-4 text-lg">{selectedPlant.description}</p>
+              <div className="row-span-1 ml-4 leading-8">
+                <h2 className="text-xl font-semibold mb-2">{selectedPlant.name}</h2>
+                <p className="mt-4 text-lg">{selectedPlant.description}</p> {/* Here in the plant information we have to add Botanical Name, Common Name, Medicinal Uses and How to Find it. */}
                 <div className="mt-4">
-                  <h4 className="text-xl font-semibold">Region: {selectedPlant.region}</h4>
-                  <h4 className="text-xl font-semibold">Type: {selectedPlant.type}</h4>
-                  <h4 className="text-xl font-semibold">Ayush System: {selectedPlant.ayush}</h4>
+                  <p><b>Region:</b> {selectedPlant.region}</p>
+                  <p><b>Type:</b> {selectedPlant.type}</p>
+                  <p><b>Habitat:</b> {selectedPlant.habitat}</p>
                 </div>
               </div>
-            </div>
 
-            {/* Notes Section */}
-            <div className="mt-8">
-              <h3 className="text-2xl font-semibold">Notes:</h3>
-              <textarea id="notes-textarea" className="w-full p-2 mt-2 border rounded-md"></textarea>
-              <div className="mt-4">
-                <button onClick={handleDownloadNotes} className="px-4 py-2 bg-green-500 text-white rounded-md">
+              {/* Section 3: Multimedia (Bottom Left) */}
+              <div className="row-span-1 mt-5">
+                <img src={selectedPlant.imageSrc} alt={selectedPlant.name} className="h-64 object-cover w-full" />
+              </div>
+
+              {/* Section 4: Notes */}
+              <div className="row-span-1 p-4 mt-5">
+                <h3 className="text-xl font-semibold mb-5">Notes :</h3>
+                <textarea
+                  id="notes-textarea"
+                  rows="5"
+                  className="w-full p-2 border rounded-md"
+                  placeholder="Write your notes here..."
+                ></textarea>
+                <button
+                  className="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                  onClick={handleDownloadNotes}
+                >
                   Download Notes
                 </button>
-                <button onClick={handleShareNotes} className="ml-4 px-4 py-2 bg-blue-500 text-white rounded-md">
-                  Share Notes
+                <button
+                  className="mt-2 px-4 py-2 bg-main-color text-white rounded ml-2 hover:bg-blue-900"
+                  onClick={handleShareNotes}
+                >
+                  Share
                 </button>
+
               </div>
             </div>
           </div>
@@ -355,6 +385,8 @@ function Home() {
         )}
       </div>
       <Footer />
+      {/* Quiz Popup */}
+      <QuizPopup isOpen={isQuizOpen} onClose={() => setIsQuizOpen(false)} />
     </>
   );
 }
