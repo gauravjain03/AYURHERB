@@ -142,9 +142,9 @@ function Home() {
               {/* <a href="#about" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200">
                 About
               </a> */}
-              <a href="#contact" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200">
-                Contact
-              </a>
+              <Link to="/about" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200">
+                About
+              </Link>
               <Link to="/ar" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200">
                 AR
               </Link>
