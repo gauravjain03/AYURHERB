@@ -246,24 +246,30 @@ function Home() {
         {/* Plant Cards or Bookmarked Plants */}
         <div className="container mx-auto mt-16 px-8 py-10">
           {showBookmarks ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Show bookmarked plants */}
-              {plants
-                .filter(plant => bookmarks.includes(plant.name))
-                .map((plant, index) => (
-                  <PlantCard
-                    key={index}
-                    imageSrc={plant.imageSrc}
-                    name={plant.name}
-                    region={plant.region}
-                    type={plant.type}
-                    ayush={plant.ayush}
-                    isBookmarked={bookmarks.includes(plant.name)}
-                    onBookmarkToggle={() => toggleBookmark(plant.name)}  // <-- Use the same prop as in the main view
-                    onLearnMore={() => openPopup(plant)}  // <-- Added
-                  />
-                ))}
-            </div>
+            <>
+              {bookmarks.length > 0 ? (  // Check if there are any bookmarks
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {/* Show bookmarked plants */}
+                  {plants
+                    .filter(plant => bookmarks.includes(plant.name))
+                    .map((plant, index) => (
+                      <PlantCard
+                        key={index}
+                        imageSrc={plant.imageSrc}
+                        name={plant.name}
+                        region={plant.region}
+                        type={plant.type}
+                        ayush={plant.ayush}
+                        isBookmarked={bookmarks.includes(plant.name)}
+                        onBookmarkToggle={() => toggleBookmark(plant.name)}
+                        onLearnMore={() => openPopup(plant)}
+                      />
+                    ))}
+                </div>
+              ) : (
+                <p className="text-center text-gray-500">NO BOOKMARKS SAVED</p>  // Show "NO BOOKMARKS SAVED" if no bookmarks exist
+              )}
+            </>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Show all plants */}
@@ -275,14 +281,14 @@ function Home() {
                   type={plant.type}
                   isBookmarked={bookmarks.includes(plant.name)}
                   onBookmarkToggle={() => toggleBookmark(plant.name)}
-                  onLearnMore={() => openPopup(plant)}  // <-- Added
+                  onLearnMore={() => openPopup(plant)}
                 />
               ))}
             </div>
           )}
         </div>
       </div>
-     
+
       {/* Popup content with dynamic 3D model and description */}
       {isPopupOpen && selectedPlant && (
         <div className="fixed inset-0 flex items-center justify-center z-40 bg-black bg-opacity-50">
