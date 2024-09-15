@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PlantCard from '../components/PlantCard';
 import Footer from '../components/Footer';
 import QuizPopup from '../components/QuizPopup';
+import { Link } from 'react-router-dom';
 
 function Home() {
   // State to handle filter panel visibility
@@ -121,6 +122,7 @@ function Home() {
     setIsQuizOpen(!isQuizOpen);
   };
 
+
   return (
     <>
       <div className="font-poppins">
@@ -134,15 +136,18 @@ function Home() {
 
             {/* Middle: Links */}
             <div className="flex-grow flex justify-center space-x-8">
-              <a href="#home" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200">
+              <Link to="/" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200">
                 Home
-              </a>
-              <a href="#about" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200">
+              </Link>
+              {/* <a href="#about" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200">
                 About
-              </a>
+              </a> */}
               <a href="#contact" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200">
                 Contact
               </a>
+              <Link to="/ar" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200">
+                AR
+              </Link>
               <button
                 onClick={handleShowBookmarks}
                 className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sky-500 hover:text-sky-500 transition-colors duration-200"
@@ -151,7 +156,7 @@ function Home() {
               </button>
             </div>
 
-            {/* Right Side: Search Bar, Filter, and Quiz */}
+            {/* Right Side: Search Bar, Filter, Quiz, AR */}
             <div className="flex items-center space-x-4">
               {/* Search Box */}
               <div className="flex items-center w-80">
@@ -180,19 +185,10 @@ function Home() {
               >
                 <i className="fa-solid fa-question-circle mr-2"></i>Quiz
               </button>
+            </div>
+          </div>
+        </nav>
 
-              {/* Bookmarks Tab
-              <div>
-                <button
-                  onClick={handleShowBookmarks}
-                  className="px-4 py-2 border border-main-color text-main-color rounded-xl bg-sec-color hover:bg-main-color hover:text-white transition-colors duration-200"
-                >
-                  <i className="fa-solid fa-bookmark mr-2"></i>{showBookmarks ? 'Show All' : 'Bookmarks'}
-                </button>
-              </div> */}
-            </div >
-          </div >
-        </nav >
 
         {/* Filter Slider (Fixed with Transparency and Blur Effect) */}
         <div

@@ -7,7 +7,7 @@ function Footer() {
         <div className="flex flex-wrap items-center justify-between">
           {/* Company Info */}
           <div className="w-full md:w-1/2 mb-6">
-            <h2 className="text-xl font-semibold mb-4">AYURB</h2>
+            <h2 className="text-xl font-semibold mb-4">AYURHERBS</h2>
             <p className="text-gray-800">
               Bringing you the best of Ayurvedic and herbal remedies with detailed information about medicinal plants.
             </p>
