@@ -16,7 +16,46 @@ const QuizPopup = ({ isOpen, onClose }) => {
       options: ['Neem', 'Cactus', 'Hibiscus', 'Rosemary'],
       answer: 'Neem',
     },
-    // Add more questions as needed
+    {
+      question: 'Which plant is known for its soothing properties and is often used in teas?',
+      options: ['Chamomile', 'Mint', 'Ginger', 'Echinacea'],
+      answer: 'Chamomile',
+    },
+    {
+      question: 'Which plant is commonly used to treat headaches and muscle pain?',
+      options: ['Peppermint', 'Lavender', 'Ginseng', 'Dandelion'],
+      answer: 'Peppermint',
+    },
+    {
+      question: 'Which plant is known for its high vitamin C content and is used to boost the immune system?',
+      options: ['Rosehip', 'Elderberry', 'Ginger', 'Garlic'],
+      answer: 'Rosehip',
+    },
+    {
+      question: 'Which plant has leaves used in cooking that provide a distinctive flavor and is known as “Holy Basil” in some cultures?',
+      options: ['Thyme', 'Basil', 'Oregano', 'Coriander'],
+      answer: 'Basil',
+    },
+    {
+      question: 'Which plant’s roots are used in traditional medicine for their anti-inflammatory properties?',
+      options: ['Turmeric', 'Ginger', 'Garlic', 'Dandelion'],
+      answer: 'Turmeric',
+    },
+    {
+      question: 'Which plant is used in aromatherapy for relaxation and stress relief?',
+      options: ['Lavender', 'Jasmine', 'Sandalwood', 'Patchouli'],
+      answer: 'Lavender',
+    },
+    {
+      question: 'Which plant’s leaves are known for their ability to reduce high blood sugar levels?',
+      options: ['Moringa', 'Ginseng', 'Neem', 'Aloe Vera'],
+      answer: 'Moringa',
+    },
+    {
+      question: 'Which plant is known for its ability to purify the air and is commonly kept indoors?',
+      options: ['Spider Plant', 'Aloe Vera', 'Snake Plant', 'Peace Lily'],
+      answer: 'Snake Plant',
+    },
   ];
 
   const handleAnswer = (answer) => {
@@ -35,11 +74,17 @@ const QuizPopup = ({ isOpen, onClose }) => {
     onClose();
   };
 
+  const calculateScore = () => {
+    return answers.reduce((score, answer, index) => {
+      return answer === questions[index].answer ? score + 1 : score;
+    }, 0);
+  };
+
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-40 bg-black bg-opacity-50">
-      <div className="bg-white rounded-lg p-8 w-4/5 max-w-md relative">
+      <div className="bg-white rounded-lg p-6 w-full max-w-lg mx-4 sm:mx-0 relative max-h-[80vh] overflow-auto">
         <button
           onClick={handleClose}
           className="absolute top-2 right-2 text-3xl font-medium text-gray-600 hover:text-red-500"
@@ -50,14 +95,22 @@ const QuizPopup = ({ isOpen, onClose }) => {
         <div>
           {isQuizComplete ? (
             <div>
-              <h2 className="text-2xl font-bold">Quiz Completed!</h2>
-              <p className="mt-4">Your answers:</p>
-              <ul>
-                {questions.map((q, index) => (
-                  <li key={index} className="mt-2">
-                    {q.question} <span className="font-semibold">Your answer: {answers[index]}</span>
-                  </li>
-                ))}
+              <h2 className="text-2xl font-bold mb-4">Quiz Completed!</h2>
+              <p className="mb-4">Your score: {calculateScore()} / {questions.length}</p>
+              <p className="mb-4">Your answers:</p>
+              <ul className="list-disc pl-5">
+                {questions.map((q, index) => {
+                  const isCorrect = answers[index] === q.answer;
+                  return (
+                    <li key={index} className="mt-2">
+                      <strong>{q.question}</strong> <br />
+                      <span className={`font-semibold ${isCorrect ? 'text-green-500' : 'text-red-500'}`}>
+                        Your answer: {answers[index]}
+                      </span> <br />
+                      <span className="text-gray-600">Correct answer: {q.answer}</span>
+                    </li>
+                  );
+                })}
               </ul>
               <button
                 onClick={handleClose}
@@ -68,7 +121,7 @@ const QuizPopup = ({ isOpen, onClose }) => {
             </div>
           ) : (
             <div>
-              <h2 className="text-2xl font-bold">{questions[currentQuestion].question}</h2>
+              <h2 className="text-2xl font-bold mb-4">{questions[currentQuestion].question}</h2>
               <div className="mt-4">
                 {questions[currentQuestion].options.map((option, index) => (
                   <button
