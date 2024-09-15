@@ -2,7 +2,7 @@ import React from 'react'
 
 function Navbar() {
     return (
-        <>
+        <div>
             {/* Navbar */}
             <nav className="bg-white shadow-md fixed top-0 left-0 w-full z-30">
                 <div className="container mx-auto flex items-center py-4 px-8">
@@ -62,7 +62,7 @@ function Navbar() {
                     </div>
                 </div>
             </nav>
-        </>
+        </div>
     )
 }
 

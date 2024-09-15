@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Footer from '../components/Footer';
 
 const AboutPage = () => {
   const [showMission, setShowMission] = useState(false);
@@ -6,7 +7,6 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      
       {/* Mission Section */}
       <section className="py-12">
         <div className="container mx-auto text-center">
@@ -72,7 +72,9 @@ const AboutPage = () => {
           </a>
         </div>
       </section>
+    
     </div>
+   
   );
 };
 

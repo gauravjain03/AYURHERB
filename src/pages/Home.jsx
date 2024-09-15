@@ -122,6 +122,9 @@ function Home() {
     setIsQuizOpen(!isQuizOpen);
   };
 
+  // Check if there are any bookmarks
+  const hasBookmarks = bookmarks.length > 0;
+
 
   return (
     <>
@@ -279,7 +282,7 @@ function Home() {
           )}
         </div>
       </div>
-
+     
       {/* Popup content with dynamic 3D model and description */}
       {isPopupOpen && selectedPlant && (
         <div className="fixed inset-0 flex items-center justify-center z-40 bg-black bg-opacity-50">
@@ -380,7 +383,7 @@ function Home() {
           </div>
         )}
       </div>
-      <Footer />
+
       {/* Quiz Popup */}
       <QuizPopup isOpen={isQuizOpen} onClose={() => setIsQuizOpen(false)} />
     </>
