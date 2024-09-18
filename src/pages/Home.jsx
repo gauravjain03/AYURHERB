@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PlantCard from '../components/PlantCard';
-import Footer from '../components/Footer';
 import QuizPopup from '../components/QuizPopup';
 import { Link } from 'react-router-dom';
 
@@ -358,7 +357,7 @@ function Home() {
         </div>
       )}
       {/* Chatbot Button and Iframe */}
-      <div className="fixed bottom-4 right-4 z-50">
+      <div className="fixed bottom-4 right-4 z-50 ">
         {/* Chatbot Toggle Button */}
         <button
           onClick={toggleChatbot1}
