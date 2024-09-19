@@ -1,4 +1,51 @@
-/* src/styles/globals.css */
+/* src/index.css or src/global.css */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom Scrollbar Styles */
+@layer utilities {
+
+    /* For entire document scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+        /* Width of the scrollbar */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        /* Background color of the scrollbar track */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #888;
+        /* Color of the scrollbar thumb */
+        border-radius: 10px;
+        /* Roundness of the scrollbar thumb */
+        border: 2px solid #f1f1f1;
+        /* Optional: Border around the scrollbar thumb */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #555;
+        /* Color of the scrollbar thumb on hover */
+    }
+
+    /* Apply the custom scrollbar styles globally */
+    .scrollbar-thin::-webkit-scrollbar {
+        width: 6px;
+        /* Slightly thinner scrollbar */
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+        background-color: #1977CC;
+        /* Main color for the scrollbar thumb */
+        border-radius: 10px;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+        background-color: #145ea8;
+        /* Darker color on hover */
+    }
+}

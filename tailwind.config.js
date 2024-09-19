@@ -10,12 +10,13 @@ module.exports = {
         poppins: ['Poppins', 'sans-serif'],
       },
       colors: {
-        'navbar-text': '#2C4964',
-        'sec-color': '#F1F7FD',
-        'main-color': '#1977CC',
-        'sub-color': '#D6E9FA',
+        'navbar-text': '#10451d',
+        'sec-color': '#f5fff7',
+        'main-color': '#155d27',
+        'sub-color': '#2dc653',
       },
     },
   },
+  
   plugins: [],
 }
