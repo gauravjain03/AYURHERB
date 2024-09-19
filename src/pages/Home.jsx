@@ -77,18 +77,18 @@ function Home() {
 
   // Plant data
   const plants = [
-    { imageSrc: '/images/tulsi.png', multimedia: ['/images/tulsi2.png', '/images/tulsi3.png', '/images/tulsi4.png', 'https://www.youtube.com/embed/HL6XdPLgoGA?si=8GJlm-Yw92GGSohg'], name: 'Tulsi', region: 'Tropical', type: 'Herb', habitat: 'Ayurveda', description: 'Tulsi, also known as holy basil, is a revered plant in Ayurveda known for its healing properties.', sketchfabModelUrl: 'https://sketchfab.com/models/3272493ccf6c4ede895f259905ef1db8/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/neem.png', multimedia: ['/images/neem2.png', '/images/neem3.png', '/images/neem4.png', 'https://www.youtube.com/embed/fA-l1t_Aotw?si=oc1PFJNyG7iFARLx'], name: 'Neem', region: 'Tropical', type: 'Tree', habitat: 'Ayurveda', description: 'Neem is a fast-growing tree used in traditional medicine for its antibacterial properties.', sketchfabModelUrl: 'https://sketchfab.com/models/03edef8009d942d3a3db6fa64cecbe56/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/aloevera.png', multimedia: ['/images/aloevera2.png', '/images/aloevera3.png', '/images/aloevera4.png', 'https://www.youtube.com/embed/7NqgGS1_zmE?si=9WEnCcRm58nCJoSy'], name: 'Aloe Vera', region: 'Tropical', type: 'Succulent', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/66c6699e50ab4863989777f920a981dd/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/lavender.png', multimedia: ['/images/lavender2.png', '/images/lavender3.png', '/images/lavender4.png', 'https://www.youtube.com/embed/8Oxw4BgqQ2Y?si=MVyTAJ43oFLRvUza'], name: 'Lavender', region: 'Mediterranean', type: 'Flowering Plant', habitat: 'Naturopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/08f35ae30b924678955b4bb483b86a70/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/sage.png', multimedia: ['/images/sage2.png', '/images/sage3.png', '/images/sage4.png', 'https://www.youtube.com/embed/aaKJm9jad6Q?si=fcqs8MYzl1HTKTAi'], name: 'Sage', region: 'Temperate', type: 'Herb', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/f41f028de9ca4be2b2e85df0820508ae/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/cactus.png', multimedia: ['/images/cactus2.png', '/images/cactus3.png', '/images/cactus4.png', 'https://www.youtube.com/embed/Uds_rPbFkpU?si=Z5pkrP2xGsrmN1G9'], name: 'Cactus', region: 'Arid', type: 'Succulent', habitat: 'Naturopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/01d773057954447a9abb7ae0c6c052af/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/dandelions.png', multimedia: ['/images/dandelion2.png', '/images/dandelion3.png', '/images/dandelion4.png', 'https://www.youtube.com/embed/T6pjGwkK2po?si=ar7M8GDjw34P89hu'], name: 'Dandelion', region: 'North America', type: 'Flowering Plant', habitat: 'Homeopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/8a93f08947a4499b9ed19d2d47323242/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/eucalyptus.png', multimedia: ['/images/eucalyptus2.png', '/images/eucalyptus3.png', '/images/eucalyptus4.png', 'https://www.youtube.com/embed/N8xcQRCSKbQ?si=xxaP0Y4XMRM4sVXP'], name: 'Eucalyptus', region: 'Temperate', type: 'Tree', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/d021e7909df44e03b976c1374bfab9dc/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/hibiscus.png', multimedia: ['/images/hibiscus2.png', '/images/hibiscus2.png', '/images/hibiscus2.png', 'https://www.youtube.com/embed/4W44xiXvUAI?si=T-hBaOKpbJ32CCpe'], name: 'Hibiscus', region: 'Tropical', type: 'Flowering Plant', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/8992b6b94b094a069930104a32d5e9f5/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/rosemary.png', multimedia: ['/images/rosemary2.png', '/images/rosemary3.png', '/images/rosemary4.png', 'https://www.youtube.com/embed/GrnrDsGao20?si=SOGnrcs5UROhX536'], name: 'Rosemary', region: 'Mediterranean', type: 'Herb', habitat: 'Naturopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/d5c0f249ff8a4d13840abf681bb92d29/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/ashwagandha.jpg', multimedia: ['/images/ashwagandha2.png', '/images/ashwagandha3.png', '/images/ashwagandha4.png', 'https://www.youtube.com/embed/OE14JsyuEII?si=mqgjr9iTqhlU9kOU'], name: 'Ashwagandha', region: 'Arid', type: 'Shrub', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/88b1bf03a6254dc2b56cec4dce3f22f1/embed?autospin=1&autostart=1' },
-    { imageSrc: '/images/ginger.png', multimedia: ['/images/ginger2.png', '/images/ginger3.png', '/images/ginger4.png', 'https://www.youtube.com/embed/uniaqvtHVhw?si=5ooLbhjODICnEbX2'], name: 'Ginger', region: 'Tropical', type: 'Herb', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/de8da99c3c1742708cd4ea858750b881/embed?autospin=1&autostart=1' },
+    { imageSrc: '/images/tulsi.png', multimedia: ['/images/tulsi2.png', '/images/tulsi3.png', '/images/tulsi4.png', 'https://www.youtube.com/embed/HL6XdPLgoGA?si=8GJlm-Yw92GGSohg'], name: 'Tulsi', region: 'Tropical', type: 'Herb', habitat: 'Ayurveda', description: 'Tulsi, also known as holy basil, is a revered plant in Ayurveda known for its healing properties.', sketchfabModelUrl: 'https://sketchfab.com/models/3272493ccf6c4ede895f259905ef1db8/embed?autospin=1&autostart=1', audioSrc: "/audio/tulsi.mp3" },
+    { imageSrc: '/images/neem.png', multimedia: ['/images/neem2.png', '/images/neem3.png', '/images/neem4.png', 'https://www.youtube.com/embed/fA-l1t_Aotw?si=oc1PFJNyG7iFARLx'], name: 'Neem', region: 'Tropical', type: 'Tree', habitat: 'Ayurveda', description: 'Neem is a fast-growing tree used in traditional medicine for its antibacterial properties.', sketchfabModelUrl: 'https://sketchfab.com/models/03edef8009d942d3a3db6fa64cecbe56/embed?autospin=1&autostart=1', audioSrc: "/audio/neem.mp3" },
+    { imageSrc: '/images/aloevera.png', multimedia: ['/images/aloevera2.png', '/images/aloevera3.png', '/images/aloevera4.png', 'https://www.youtube.com/embed/7NqgGS1_zmE?si=9WEnCcRm58nCJoSy'], name: 'Aloe Vera', region: 'Tropical', type: 'Succulent', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/66c6699e50ab4863989777f920a981dd/embed?autospin=1&autostart=1', audioSrc: "/audio/aloe vera.mp3" },
+    { imageSrc: '/images/lavender.png', multimedia: ['/images/lavender2.png', '/images/lavender3.png', '/images/lavender4.png', 'https://www.youtube.com/embed/8Oxw4BgqQ2Y?si=MVyTAJ43oFLRvUza'], name: 'Lavender', region: 'Mediterranean', type: 'Flowering Plant', habitat: 'Naturopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/08f35ae30b924678955b4bb483b86a70/embed?autospin=1&autostart=1', audioSrc: "/audio/lavender.mp3" },
+    { imageSrc: '/images/sage.png', multimedia: ['/images/sage2.png', '/images/sage3.png', '/images/sage4.png', 'https://www.youtube.com/embed/aaKJm9jad6Q?si=fcqs8MYzl1HTKTAi'], name: 'Sage', region: 'Temperate', type: 'Herb', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/f41f028de9ca4be2b2e85df0820508ae/embed?autospin=1&autostart=1', audioSrc: "/audio/sage.mp3" },
+    { imageSrc: '/images/cactus.png', multimedia: ['/images/cactus2.png', '/images/cactus3.png', '/images/cactus4.png', 'https://www.youtube.com/embed/Uds_rPbFkpU?si=Z5pkrP2xGsrmN1G9'], name: 'Cactus', region: 'Arid', type: 'Succulent', habitat: 'Naturopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/01d773057954447a9abb7ae0c6c052af/embed?autospin=1&autostart=1', audioSrc: "/audio/cactus.mp3" },
+    { imageSrc: '/images/dandelions.png', multimedia: ['/images/dandelion2.png', '/images/dandelion3.png', '/images/dandelion4.png', 'https://www.youtube.com/embed/T6pjGwkK2po?si=ar7M8GDjw34P89hu'], name: 'Dandelion', region: 'North America', type: 'Flowering Plant', habitat: 'Homeopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/8a93f08947a4499b9ed19d2d47323242/embed?autospin=1&autostart=1', audioSrc: "/audio/dandelion.mp3" },
+    { imageSrc: '/images/eucalyptus.png', multimedia: ['/images/eucalyptus2.png', '/images/eucalyptus3.png', '/images/eucalyptus4.png', 'https://www.youtube.com/embed/N8xcQRCSKbQ?si=xxaP0Y4XMRM4sVXP'], name: 'Eucalyptus', region: 'Temperate', type: 'Tree', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/d021e7909df44e03b976c1374bfab9dc/embed?autospin=1&autostart=1', audioSrc: "/audio/ecualypus.mp3" },
+    { imageSrc: '/images/hibiscus.png', multimedia: ['/images/hibiscus2.png', '/images/hibiscus2.png', '/images/hibiscus2.png', 'https://www.youtube.com/embed/4W44xiXvUAI?si=T-hBaOKpbJ32CCpe'], name: 'Hibiscus', region: 'Tropical', type: 'Flowering Plant', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/8992b6b94b094a069930104a32d5e9f5/embed?autospin=1&autostart=1', audioSrc: "/audio/hibiscuis.mp3" },
+    { imageSrc: '/images/rosemary.png', multimedia: ['/images/rosemary2.png', '/images/rosemary3.png', '/images/rosemary4.png', 'https://www.youtube.com/embed/GrnrDsGao20?si=SOGnrcs5UROhX536'], name: 'Rosemary', region: 'Mediterranean', type: 'Herb', habitat: 'Naturopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/d5c0f249ff8a4d13840abf681bb92d29/embed?autospin=1&autostart=1', audioSrc: "/audio/rosemery.mp3" },
+    { imageSrc: '/images/ashwagandha.jpg', multimedia: ['/images/ashwagandha2.png', '/images/ashwagandha3.png', '/images/ashwagandha4.png', 'https://www.youtube.com/embed/OE14JsyuEII?si=mqgjr9iTqhlU9kOU'], name: 'Ashwagandha', region: 'Arid', type: 'Shrub', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/88b1bf03a6254dc2b56cec4dce3f22f1/embed?autospin=1&autostart=1', audioSrc: "/audio/ashwaganda.mp3" },
+    { imageSrc: '/images/ginger.png', multimedia: ['/images/ginger2.png', '/images/ginger3.png', '/images/ginger4.png', 'https://www.youtube.com/embed/uniaqvtHVhw?si=5ooLbhjODICnEbX2'], name: 'Ginger', region: 'Tropical', type: 'Herb', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/de8da99c3c1742708cd4ea858750b881/embed?autospin=1&autostart=1', audioSrc: "/audio/ginger.mp3" },
   ];
 
   // Filtered plants based on selected filters
@@ -153,7 +153,16 @@ function Home() {
       plantCardsRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
-  
+
+  // Create a ref for the audio element
+  const audioRef = useRef(null);
+
+  // Function to play the audio
+  const handlePlayAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
+  };
 
   return (
     <>
@@ -288,6 +297,7 @@ function Home() {
                         region={plant.region}
                         type={plant.type}
                         ayush={plant.ayush}
+                        audioSrc={plant.audioSrc} // Pass audio source as a prop
                         isBookmarked={bookmarks.includes(plant.name)}
                         onBookmarkToggle={() => toggleBookmark(plant.name)}
                         onLearnMore={() => openPopup(plant)}
@@ -307,6 +317,7 @@ function Home() {
                   imageSrc={plant.imageSrc}
                   name={plant.name}
                   type={plant.type}
+                  audioSrc={plant.audioSrc} // Pass audio source as a prop
                   isBookmarked={bookmarks.includes(plant.name)}
                   onBookmarkToggle={() => toggleBookmark(plant.name)}
                   onLearnMore={() => openPopup(plant)}
@@ -405,26 +416,34 @@ function Home() {
                   className="w-full p-2 border rounded-md"
                   placeholder="Write your notes here..."
                 ></textarea>
-                <button
-                  className="mt-2 px-4 py-2 bg-main-color text-white rounded hover:bg-sub-color transition-colors duration-200"
+                <button 
+                  className="text-sm mt-2 px-4 py-2 bg-main-color text-white rounded hover:bg-sub-color transition-colors duration-200"
                   onClick={handleDownloadNotes}
-                >
-                  Download Notes
+                > <i class="fa-solid fa-download mr-2"></i>
+                  Download
                 </button>
                 <button
-                  className="mt-2 px-4 py-2 bg-main-color text-white rounded ml-2 hover:bg-sub-color transition-colors duration-200"
+                  className="text-sm mt-2 px-4 py-2 bg-main-color text-white rounded ml-2 hover:bg-sub-color transition-colors duration-200"
                   onClick={handleShareNotes}
-                >
+                > <i class="fa-solid fa-share mr-2"></i>
                   Share
                 </button>
+                <button
+                  className="text-sm mt-2 px-4 py-2 bg-main-color text-white rounded ml-2 hover:bg-sub-color transition-colors duration-200"
+                  onClick={handlePlayAudio} // Call the play audio function here
+                > <i class="fa-regular fa-circle-play mr-2"></i>
+                  Play Audio
+                </button>
 
+                {/* Audio Element */}
+                <audio ref={audioRef} src={selectedPlant.audioSrc}></audio> {/* Use the selected plant's audioSrc */}
               </div>
             </div>
           </div>
         </div>
       )}
 
-      <AyushCards/>
+      <AyushCards />
 
       {/* Chatbot Button and Iframe */}
       <div className="fixed bottom-4 right-4 z-50">

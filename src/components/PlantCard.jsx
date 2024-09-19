@@ -2,9 +2,8 @@ import React from 'react';
 
 const PlantCard = ({ imageSrc, name, type, onBookmarkToggle, isBookmarked, onLearnMore }) => {
   return (
-    <div 
-      className="bg-sec-color shadow-lg rounded-lg overflow-hidden w-full border border-gray-200 cursor-pointer pb-1"
-      onClick={onLearnMore}  // Make the entire card clickable
+    <div
+      className="bg-sec-color shadow-lg rounded-lg overflow-hidden w-full border border-gray-200 cursor-pointer pb-1 transition transform hover:scale-105 duration-200" onClick={onLearnMore}  // Make the entire card clickable
     >
       {/* Image with reduced height */}
       <img src={imageSrc} alt={name} className="w-full h-80 object-cover p-3 rounded-2xl" />
@@ -29,9 +28,9 @@ const PlantCard = ({ imageSrc, name, type, onBookmarkToggle, isBookmarked, onLea
           >
             <i className={isBookmarked ? "fas fa-check" : "fas fa-bookmark"}></i>
           </button>
-          
+
           {/* Share Button */}
-          <button 
+          <button
             className="mb-2 text-gray-600 hover:text-green-500 p-1.5 hover:bg-gray-100 hover:border-none rounded-md transition-colors duration-200"
             onClick={(e) => e.stopPropagation()}  // Prevent triggering the card click
           >
