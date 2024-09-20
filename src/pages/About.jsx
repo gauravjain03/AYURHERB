@@ -29,35 +29,6 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Technologies Section */}
-        <section className="py-12">
-          <div className="container mx-auto">
-            <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">Technologies We Use</h2>
-            <div className="flex justify-center space-x-6 text-gray-600">
-              <div>
-                <i className="fab fa-react text-4xl text-blue-500"></i>
-                <p>React.js</p>
-              </div>
-              <div>
-                <i className="fab fa-node-js text-4xl text-green-500"></i>
-                <p>Node.js</p>
-              </div>
-              <div>
-                <i className="fas fa-database text-4xl text-yellow-500"></i>
-                <p>SQL</p>
-              </div>
-              <div>
-                <i className="fas fa-vr-cardboard text-4xl text-purple-500"></i>
-                <p>AR.js</p>
-              </div>
-              <div>
-                <i className="fab fa-css3-alt text-4xl text-blue-600"></i>
-                <p>Tailwind CSS</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Contact Section */}
         <section className="bg-white py-12 shadow-lg">
           <div className="container mx-auto text-center">

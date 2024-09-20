@@ -3,7 +3,7 @@ import React from 'react';
 const PlantCard = ({ imageSrc, name, type, onBookmarkToggle, isBookmarked, onLearnMore }) => {
   return (
     <div
-      className="bg-sec-color shadow-lg rounded-lg overflow-hidden w-full border border-gray-200 cursor-pointer pb-1 transition transform hover:scale-105 duration-200" onClick={onLearnMore}  // Make the entire card clickable
+      className="bg-sec-color shadow-lg rounded-lg overflow-hidden w-full border border-gray-200 cursor-pointer pb-1 transition transform hover:scale-105 duration-500 ease-in-out" onClick={onLearnMore}  // Make the entire card clickable
     >
       {/* Image with reduced height */}
       <img src={imageSrc} alt={name} className="w-full h-80 object-cover p-3 rounded-2xl" />

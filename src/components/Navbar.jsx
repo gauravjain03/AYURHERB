@@ -22,6 +22,9 @@ function Navbar({ handleShowBookmarks }) {
           <Link to="/ar" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sub-color hover:text-sub-color transition-colors duration-200">
             AR
           </Link>
+          <Link to="/health-wellness" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sub-color hover:text-sub-color transition-colors duration-200">
+            Health
+          </Link>
           <Link to="/bookmarks" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sub-color hover:text-sub-color transition-colors duration-200">
             Bookmark
           </Link>

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import PlantCard from '../components/PlantCard';
-// import Footer from '../components/Footer';
+import Footer from '../components/Footer';
 import QuizPopup from '../components/QuizPopup';
 import { Link } from 'react-router-dom';
 import FirstPage from '../components/FirstPage'; // Going into the 'components' folder
@@ -77,8 +77,8 @@ function Home() {
 
   // Plant data
   const plants = [
-    { imageSrc: '/images/tulsi.png', multimedia: ['/images/tulsi2.png', '/images/tulsi3.png', '/images/tulsi4.png', 'https://www.youtube.com/embed/HL6XdPLgoGA?si=8GJlm-Yw92GGSohg'], name: 'Tulsi', region: 'Tropical', type: 'Herb', habitat: 'Ayurveda', description: 'Tulsi, also known as holy basil, is a revered plant in Ayurveda known for its healing properties.', sketchfabModelUrl: 'https://sketchfab.com/models/3272493ccf6c4ede895f259905ef1db8/embed?autospin=1&autostart=1', audioSrc: "/audio/tulsi.mp3" },
-    { imageSrc: '/images/neem.png', multimedia: ['/images/neem2.png', '/images/neem3.png', '/images/neem4.png', 'https://www.youtube.com/embed/fA-l1t_Aotw?si=oc1PFJNyG7iFARLx'], name: 'Neem', region: 'Tropical', type: 'Tree', habitat: 'Ayurveda', description: 'Neem is a fast-growing tree used in traditional medicine for its antibacterial properties.', sketchfabModelUrl: 'https://sketchfab.com/models/03edef8009d942d3a3db6fa64cecbe56/embed?autospin=1&autostart=1', audioSrc: "/audio/neem.mp3" },
+    { imageSrc: '/images/tulsi.png', multimedia: ['/images/tulsi2.png', '/images/tulsi3.png', '/images/tulsi4.png', 'https://www.youtube.com/embed/HL6XdPLgoGA?si=8GJlm-Yw92GGSohg'], name: 'Tulsi', region: 'Tropical', type: 'Herb', habitat: 'Tropical, Subtropical', botname: 'Ocimum tenuiflorum', comnames: 'Tulsi, Holy Basil', meduses: 'Immunity booster, Respiratory disorders', methofcul: 'Seed Propagation, Full Sunlight', description: 'Tulsi, also known as holy basil, is a revered plant in Ayurveda known for its healing properties.', sketchfabModelUrl: 'https://sketchfab.com/models/3272493ccf6c4ede895f259905ef1db8/embed?autospin=1&autostart=1', audioSrc: "/audio/tulsi.mp3" },
+    { imageSrc: '/images/neem.png', multimedia: ['/images/neem2.png', '/images/neem3.png', '/images/neem4.png', 'https://www.youtube.com/embed/fA-l1t_Aotw?si=oc1PFJNyG7iFARLx'], name: 'Neem', region: 'Tropical', type: 'Tree', habitat: 'Tropical, Subtropical', botname: 'Azadirachta indica', comnames: 'Neem, Indian Lilac', meduses: 'Antibacterial, Antifungal', methofcul: 'Seeds, Saplings', description: 'Neem is a fast-growing tree used in traditional medicine for its antibacterial properties.', sketchfabModelUrl: 'https://sketchfab.com/models/03edef8009d942d3a3db6fa64cecbe56/embed?autospin=1&autostart=1', audioSrc: "/audio/neem.mp3" },
     { imageSrc: '/images/aloevera.png', multimedia: ['/images/aloevera2.png', '/images/aloevera3.png', '/images/aloevera4.png', 'https://www.youtube.com/embed/7NqgGS1_zmE?si=9WEnCcRm58nCJoSy'], name: 'Aloe Vera', region: 'Tropical', type: 'Succulent', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/66c6699e50ab4863989777f920a981dd/embed?autospin=1&autostart=1', audioSrc: "/audio/aloe vera.mp3" },
     { imageSrc: '/images/lavender.png', multimedia: ['/images/lavender2.png', '/images/lavender3.png', '/images/lavender4.png', 'https://www.youtube.com/embed/8Oxw4BgqQ2Y?si=MVyTAJ43oFLRvUza'], name: 'Lavender', region: 'Mediterranean', type: 'Flowering Plant', habitat: 'Naturopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/08f35ae30b924678955b4bb483b86a70/embed?autospin=1&autostart=1', audioSrc: "/audio/lavender.mp3" },
     { imageSrc: '/images/sage.png', multimedia: ['/images/sage2.png', '/images/sage3.png', '/images/sage4.png', 'https://www.youtube.com/embed/aaKJm9jad6Q?si=fcqs8MYzl1HTKTAi'], name: 'Sage', region: 'Temperate', type: 'Herb', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/f41f028de9ca4be2b2e85df0820508ae/embed?autospin=1&autostart=1', audioSrc: "/audio/sage.mp3" },
@@ -87,7 +87,7 @@ function Home() {
     { imageSrc: '/images/eucalyptus.png', multimedia: ['/images/eucalyptus2.png', '/images/eucalyptus3.png', '/images/eucalyptus4.png', 'https://www.youtube.com/embed/N8xcQRCSKbQ?si=xxaP0Y4XMRM4sVXP'], name: 'Eucalyptus', region: 'Temperate', type: 'Tree', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/d021e7909df44e03b976c1374bfab9dc/embed?autospin=1&autostart=1', audioSrc: "/audio/ecualypus.mp3" },
     { imageSrc: '/images/hibiscus.png', multimedia: ['/images/hibiscus2.png', '/images/hibiscus2.png', '/images/hibiscus2.png', 'https://www.youtube.com/embed/4W44xiXvUAI?si=T-hBaOKpbJ32CCpe'], name: 'Hibiscus', region: 'Tropical', type: 'Flowering Plant', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/8992b6b94b094a069930104a32d5e9f5/embed?autospin=1&autostart=1', audioSrc: "/audio/hibiscuis.mp3" },
     { imageSrc: '/images/rosemary.png', multimedia: ['/images/rosemary2.png', '/images/rosemary3.png', '/images/rosemary4.png', 'https://www.youtube.com/embed/GrnrDsGao20?si=SOGnrcs5UROhX536'], name: 'Rosemary', region: 'Mediterranean', type: 'Herb', habitat: 'Naturopathy', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/d5c0f249ff8a4d13840abf681bb92d29/embed?autospin=1&autostart=1', audioSrc: "/audio/rosemery.mp3" },
-    { imageSrc: '/images/ashwagandha.jpg', multimedia: ['/images/ashwagandha2.png', '/images/ashwagandha3.png', '/images/ashwagandha4.png', 'https://www.youtube.com/embed/OE14JsyuEII?si=mqgjr9iTqhlU9kOU'], name: 'Ashwagandha', region: 'Arid', type: 'Shrub', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/88b1bf03a6254dc2b56cec4dce3f22f1/embed?autospin=1&autostart=1', audioSrc: "/audio/ashwaganda.mp3" },
+    { imageSrc: '/images/ashwagandha.jpg', multimedia: ['/images/ashwagandha2.png', '/images/ashwagandha3.png', '/images/ashwagandha4.png', 'https://www.youtube.com/embed/OE14JsyuEII?si=mqgjr9iTqhlU9kOU'], name: 'Ashwagandha', region: 'Arid', type: 'Shrub', habitat: 'Dry Regions, India, Africa', botname: 'Withania Somnifera', comnames: 'Ashwagandha, Indian Ginseng', meduses: 'Stress Relief, Immunity Boost', methofcul: 'Sandy Soil, Full Sun', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/88b1bf03a6254dc2b56cec4dce3f22f1/embed?autospin=1&autostart=1', audioSrc: "/audio/ashwaganda.mp3" },
     { imageSrc: '/images/ginger.png', multimedia: ['/images/ginger2.png', '/images/ginger3.png', '/images/ginger4.png', 'https://www.youtube.com/embed/uniaqvtHVhw?si=5ooLbhjODICnEbX2'], name: 'Ginger', region: 'Tropical', type: 'Herb', habitat: 'Ayurveda', description: 'Ashwagandha is a powerful herb in Ayurveda, known for its stress-relieving properties.', sketchfabModelUrl: 'https://sketchfab.com/models/de8da99c3c1742708cd4ea858750b881/embed?autospin=1&autostart=1', audioSrc: "/audio/ginger.mp3" },
   ];
 
@@ -185,6 +185,9 @@ function Home() {
               </Link>
               <Link to="/ar" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sub-color hover:text-sub-color transition-colors duration-200">
                 AR
+              </Link>
+              <Link to="/health-wellness" className="pb-1 text-navbar-text border-b-2 border-transparent hover:border-sub-color hover:text-sub-color transition-colors duration-200">
+                Health
               </Link>
               <button
                 onClick={handleShowBookmarks}
@@ -353,16 +356,37 @@ function Home() {
                 ></iframe>
               </div>
 
-              {/* Right side: Plant Info */}
-              <div className="row-span-1 ml-4 leading-8 overflow-y-auto" style={{ maxHeight: '235px', overflowY: 'auto' }}>
-                <h2 className="text-xl font-semibold mb-2">{selectedPlant.name}</h2>
-                <p className="mt-4 text-lg">{selectedPlant.description}</p>
-                <div className="mt-4">
-                  <p><b>Region:</b> {selectedPlant.region}</p>
-                  <p><b>Type:</b> {selectedPlant.type}</p>
-                  <p><b>Habitat:</b> {selectedPlant.habitat}</p>
-                  {/* Add more plant information here */}
+              {/* Plant Info and Audio Wrapper */}
+              <div className=" row-span-1 ml-4 leading-8" style={{ maxHeight: '310px', overflowY: 'hidden' }}>
+
+                {/* Right side: Plant Info */}
+                <div className="overflow-y-auto" style={{ maxHeight: '235px' }}>
+                  <h2 className="text-xl font-semibold mb-2">{selectedPlant.name}</h2>
+                  <p className="mt-4 text-lg">{selectedPlant.description}</p>
+                  <div className="mt-4">
+                    <p><b>Region:</b> {selectedPlant.region}</p>
+                    <p><b>Type:</b> {selectedPlant.type}</p>
+                    <p><b>Habitat:</b> {selectedPlant.habitat}</p>
+                    <p><b>Botanical Name:</b> {selectedPlant.botname}</p>
+                    <p><b>Common Names:</b> {selectedPlant.comnames}</p>
+                    <p><b>Medicinal Uses:</b> {selectedPlant.meduses}</p>
+                    <p><b>Methods of Cultivation:</b> {selectedPlant.methofcul}</p>
+                    {/* Add more plant information here */}
+                  </div>
                 </div>
+
+                {/* Audio Player: Positioned below the plant info section */}
+                <div className="mt-2">
+                  <audio
+                    ref={audioRef}
+                    src={selectedPlant.audioSrc} // Use the selected plant's audio source
+                    controls // Adds the default browser audio controls
+                    className="w-full bg-gray-100 rounded-full" // Adjust width and styling as needed
+                  >
+                    Your browser does not support the audio element.
+                  </audio>
+                </div>
+
               </div>
 
               {/* Section 3: Multimedia (Bottom Left) */}
@@ -416,28 +440,37 @@ function Home() {
                   className="w-full p-2 border rounded-md"
                   placeholder="Write your notes here..."
                 ></textarea>
-                <button 
-                  className="text-sm mt-2 px-4 py-2 bg-main-color text-white rounded hover:bg-sub-color transition-colors duration-200"
-                  onClick={handleDownloadNotes}
-                > <i class="fa-solid fa-download mr-2"></i>
-                  Download
-                </button>
-                <button
-                  className="text-sm mt-2 px-4 py-2 bg-main-color text-white rounded ml-2 hover:bg-sub-color transition-colors duration-200"
-                  onClick={handleShareNotes}
-                > <i class="fa-solid fa-share mr-2"></i>
-                  Share
-                </button>
-                <button
-                  className="text-sm mt-2 px-4 py-2 bg-main-color text-white rounded ml-2 hover:bg-sub-color transition-colors duration-200"
-                  onClick={handlePlayAudio} // Call the play audio function here
-                > <i class="fa-regular fa-circle-play mr-2"></i>
-                  Play Audio
-                </button>
 
-                {/* Audio Element */}
-                <audio ref={audioRef} src={selectedPlant.audioSrc}></audio> {/* Use the selected plant's audioSrc */}
+                {/* Flex container for buttons and audio player */}
+                <div className="flex items-center mt-2">
+                  {/* Download Button */}
+                  <button
+                    className="text-sm px-4 py-2 bg-main-color text-white rounded hover:bg-sub-color transition-colors duration-200"
+                    onClick={handleDownloadNotes}
+                  >
+                    <i className="fa-solid fa-download mr-2"></i>
+                    Download
+                  </button>
+
+                  {/* Share Button */}
+                  <button
+                    className="text-sm px-4 py-2 bg-main-color text-white rounded ml-2 hover:bg-sub-color transition-colors duration-200"
+                    onClick={handleShareNotes}
+                  >
+                    <i className="fa-solid fa-share mr-2"></i>
+                    Share
+                  </button>
+
+                  {/* Comment Button */}
+                  <button
+                    className="text-sm px-4 py-2 bg-main-color text-white rounded ml-2 hover:bg-sub-color transition-colors duration-200"
+                  >
+                    <i class="fa-regular fa-comment mr-2"></i>
+                    Comment
+                  </button>
+                </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -478,7 +511,7 @@ function Home() {
         )}
       </div>
 
-      {/* <Footer /> */}
+      <Footer />
 
       {/* Quiz Popup */}
       <QuizPopup isOpen={isQuizOpen} onClose={() => setIsQuizOpen(false)} />
