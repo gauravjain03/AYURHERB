@@ -1,4 +1,4 @@
-                                                                                                  # Virtual Herbal Garden
+# Virtual Herbal Garden
 
 ## Project Overview
 
